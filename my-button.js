@@ -1,7 +1,16 @@
 class MyButton extends HTMLDivElement {
+    static get observedAttributes() {
+        return ["varient"]
+    };
+
     constructor() {
         super();
         this.attachShadow({ mode: 'open' })
+    }
+
+    attributeChangedCallback(name, oldValue, newValue) {
+        const button = this.shadowRoot.querySelector('button');
+        button && button.classList.replace(oldValue, newValue);
     }
 
     connectedCallback() {
