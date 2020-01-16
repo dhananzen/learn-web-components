@@ -27,9 +27,19 @@
     <my-button varient="primary" class="shiny"></my-button>
     <my-button varient="secondary" class="shiny"></my-button varient="primary">
     <script>
-        const element = document.getElementsByTagName('my-component')[0];
+        // const element = document.getElementsByTagName('my-component')[0];
         // const element = document.getElementsByClassName('shiny')[0];
-        // const element = document.querySelector('my-component');
+        const myButton = document.querySelector('my-button');
+
+        customElements.whenDefined('my-button').then(function () {
+
+            const extraText = document.createElement('span');
+            extraText.innerText = 'Here!'
+
+            const btn = myButton.querySelector('button');
+            btn.appendChild(extraText);
+        })
+
     </script>
 </body>
 
