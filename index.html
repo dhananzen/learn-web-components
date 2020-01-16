@@ -8,6 +8,17 @@
     <script defer src="my-button.js"></script>
 </head>
 <style>
+    body {
+        --bg-color-red: #fecaca;
+        --bg-color-white: #f1f1f1;
+
+        background-color: var(--bg-color-white);
+    }
+
+    body.red-theme {
+        background-color: var(--bg-color-red);
+    }
+
     [is="my-button"] {
         padding: 20px;
         display: inline;
@@ -23,6 +34,8 @@
     }
 </style>
 
+<!-- apply red theme to body -->
+
 <body>
     <template id="my-button-template">
         <button>
@@ -32,6 +45,16 @@
             /* use :host to style the container */
             :host {
                 border: 2px dashed black;
+            }
+
+            /* use host-context to know about what css context is outside */
+
+            :host-context(.red-theme) :host {
+                background: var(--bg-color-red);
+            }
+
+            :host-context(.red-theme) .primary {
+                background: tomato;
             }
 
             button {
@@ -72,7 +95,8 @@
             btn.appendChild(extraText);
         })
 
-    </script>
+
+    // apply red theme to body</script>
 </body>
 
 </html>
