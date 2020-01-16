@@ -29,9 +29,15 @@
             <slot name="msg-cta">Click default!</slot>
         </button>
         <style>
+            /* use :host to style the container */
+            :host {
+                border: 2px dashed black;
+            }
+
             button {
                 border-radius: 10px;
                 padding: 15px;
+
             }
 
             .primary {
