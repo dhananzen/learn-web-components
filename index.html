@@ -1,12 +1,35 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>
-            Web Components
-        </title>
-        <script defer src="my-button.js"></script>
-    </head>
-    <body>
-        <my-button></my-button>
-    </body>
+
+<head>
+    <title>
+        Web Components
+    </title>
+    <script defer src="my-button.js"></script>
+</head>
+<style>
+    my-button {
+        padding: 20px;
+        display: inline-block;
+    }
+
+    my-button button{
+        background-color: tomato;
+        padding: 10px;
+    }
+
+    .shiny {
+        background-color: thistle;
+    }
+</style>
+
+<body>
+    <my-button class="shiny"></my-button>
+    <script>
+        const element = document.getElementsByTagName('my-component')[0];
+        // const element = document.getElementsByClassName('shiny')[0];
+        // const element = document.querySelector('my-component');
+    </script>
+</body>
+
 </html>
