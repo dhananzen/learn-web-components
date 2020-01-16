@@ -36,7 +36,7 @@
             const extraText = document.createElement('span');
             extraText.innerText = 'Here!'
 
-            const btn = myButton.querySelector('button');
+            const btn = myButton.shadowRoot.querySelector('button');
             btn.appendChild(extraText);
         })
 

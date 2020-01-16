@@ -1,6 +1,7 @@
 class MyButton extends HTMLElement {
     constructor() {
         super();
+        this.attachShadow({mode: 'open'})
     }
 
     connectedCallback() {
@@ -26,8 +27,8 @@ class MyButton extends HTMLElement {
             }
         `
 
-        this.appendChild(button);
-        this.appendChild(styles);
+        this.shadowRoot.appendChild(button);
+        this.shadowRoot.appendChild(styles);
     }
 }
 
