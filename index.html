@@ -8,9 +8,9 @@
     <script defer src="my-button.js"></script>
 </head>
 <style>
-    my-button {
+    [is="my-button"] {
         padding: 20px;
-        display: inline-block;
+        display: inline;
     }
 
     my-button button {
@@ -44,19 +44,22 @@
         </style>
     </template>
 
-    <my-button varient="primary" class="shiny">
+    <div is="my-button" varient="primary" class="shiny">
         <span slot="msg-cta">Click me</span>
-    </my-button>
-    <my-button varient="secondary" class="shiny">
+    </div>
+
+    <div is="my-button" varient="secondary" class="shiny">
         <span slot="msg-cta">Click secondary me</span>
-    </my-button varient="primary">
+    </div>
+
     <script>
         // const element = document.getElementsByTagName('my-component')[0];
         // const element = document.getElementsByClassName('shiny')[0];
-        const myButton = document.querySelector('my-button');
+        const myButton = document.querySelector('[is=my-button]');
 
         customElements.whenDefined('my-button').then(function () {
 
+            console.log(myButton)
             const extraText = document.createElement('span');
             extraText.innerText = 'Here!'
 

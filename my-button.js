@@ -1,14 +1,14 @@
-class MyButton extends HTMLElement {
+class MyButton extends HTMLDivElement {
     constructor() {
         super();
         this.attachShadow({ mode: 'open' })
     }
 
     connectedCallback() {
-        const btnTemplate =  document.querySelector("#my-button-template");
+        const btnTemplate = document.querySelector("#my-button-template");
         const children = btnTemplate.content.cloneNode(true);
 
-        const button =  children.querySelector('button');
+        const button = children.querySelector('button');
 
         const varient = this.getAttribute('varient');
         button.classList.add(varient)
@@ -17,4 +17,4 @@ class MyButton extends HTMLElement {
     }
 }
 
-customElements.define('my-button', MyButton);
+customElements.define('my-button', MyButton, { extends: "div" });
