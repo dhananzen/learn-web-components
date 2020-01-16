@@ -3,6 +3,17 @@ class MyButton extends HTMLDivElement {
         return ["varient"]
     };
 
+    get disabled() {
+        return this.getAttribute(this.disabled)
+    }
+
+    set disabled(value) {
+        if (value)
+            this.addAttribute('disabled', value)
+        else
+            this.removeAttribute('disabled')
+    }
+
     constructor() {
         super();
         this.attachShadow({ mode: 'open' })
